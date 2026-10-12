@@ -104,7 +104,6 @@ function doGet(event) {
       : [];
     const wishes = rows
       .filter((row) => String(row[3] || '').toLowerCase() === 'approved')
-      .slice(-50)
       .reverse()
       .map((row) => ({
         name: String(row[1] || ''),

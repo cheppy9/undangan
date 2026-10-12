@@ -1063,6 +1063,40 @@ a:focus-visible {
   border-top: 1px solid rgb(41 43 35 / 25%);
 }
 
+.wishes__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.wishes__pagination[hidden] {
+  display: none;
+}
+
+.wishes__pagination button {
+  padding: 0.25rem 0;
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font: inherit;
+  cursor: pointer;
+}
+
+.wishes__pagination button:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.wishes__pagination button:disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
 .wish {
   padding: 1rem 0 1.1rem;
   border-bottom: 1px solid rgb(41 43 35 / 25%);
