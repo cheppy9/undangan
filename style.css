@@ -140,8 +140,8 @@ a:focus-visible {
 }
 
 .cover__image {
-  background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=90');
-  background-position: center 48%;
+  background-image: url('images/cover.webp');
+  background-position: center 58%;
   background-size: cover;
   animation: cover-arrive 1.4s ease-out both;
 }
@@ -149,9 +149,9 @@ a:focus-visible {
 .cover__wash {
   background: linear-gradient(
     180deg,
-    rgb(24 36 29 / 45%),
-    rgb(24 36 29 / 38%) 42%,
-    rgb(24 36 29 / 72%)
+    rgb(24 36 29 / 54%),
+    rgb(24 36 29 / 46%) 42%,
+    rgb(24 36 29 / 76%)
   );
 }
 
@@ -169,13 +169,13 @@ a:focus-visible {
 }
 
 .cover__flower--left {
-  top: 41%;
+  top: 0;
   left: clamp(-7rem, -5vw, -2rem);
   transform-origin: 25% 50%;
 }
 
 .cover__flower--right {
-  top: 59%;
+  top: 100%;
   right: clamp(-7rem, -5vw, -2rem);
   animation-delay: -4s;
   animation-direction: alternate-reverse;
@@ -419,38 +419,17 @@ a:focus-visible {
   font-size: 0.85rem;
 }
 
-.story-scroll {
-  min-height: 400vh;
-  min-height: 400svh;
-}
-
-.story-scroll.is-released {
-  min-height: 100vh;
-  min-height: 100svh;
-}
-
 .story {
-  position: sticky;
-  top: 0;
-  display: flex;
-  box-sizing: border-box;
-  height: 100vh;
-  height: 100svh;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 5vw, 5rem);
+  padding-top: 6rem;
+  padding-bottom: 7rem;
 }
 
 .story__heading {
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
   text-align: center;
 }
 
-.story__title.is-typing {
-  animation: type-in 900ms ease-out both;
-}
-
-.story-scroll.is-stepping .story__chapter {
+.story--revealing .story__chapter {
   transform: translateY(1rem);
   opacity: 0;
   animation: none;
@@ -459,9 +438,16 @@ a:focus-visible {
     transform 500ms ease;
 }
 
-.story-scroll.is-stepping .story__chapter.is-visible {
+.story--revealing .story__chapter.is-visible {
   transform: translateY(0);
   opacity: 1;
+}
+
+.story--passed .story__chapter {
+  transform: none;
+  opacity: 1;
+  animation: none;
+  transition: none;
 }
 
 .story__title {
@@ -1354,12 +1340,12 @@ a:focus-visible {
   }
 
   .cover__flower--left {
-    top: 36%;
+    top: 0;
     left: -2.5rem;
   }
 
   .cover__flower--right {
-    top: 64%;
+    top: 100%;
     right: -2.5rem;
   }
 
@@ -1390,16 +1376,17 @@ a:focus-visible {
   }
 
   .story {
-    padding: 1.5rem 1.25rem;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
   }
 
   .story__heading {
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
   }
 
   .story__timeline {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 1.6rem;
     padding-left: 1.4rem;
   }
 
@@ -1413,16 +1400,6 @@ a:focus-visible {
 
   .story__chapter {
     padding-top: 0;
-  }
-
-  .story__chapter h3 {
-    margin-top: 0.25rem;
-    font-size: 1.1rem;
-  }
-
-  .story__chapter > p:last-child {
-    margin-top: 0.2rem;
-    font-size: 0.75rem;
   }
 
   .story__chapter::before {
