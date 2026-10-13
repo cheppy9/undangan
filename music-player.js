@@ -1,5 +1,6 @@
 const musicAudio = document.querySelector('[data-music-audio]');
 const musicToggle = document.querySelector('[data-music-toggle]');
+const openLink = document.querySelector('.open-link');
 
 if (musicAudio && musicToggle) {
   function updateMusicToggle(isPlaying) {
@@ -9,19 +10,44 @@ if (musicAudio && musicToggle) {
     musicToggle.title = label;
   }
 
-  musicToggle.addEventListener('click', async () => {
+  async function startMusic() {
     if (musicAudio.paused) {
       try {
         await musicAudio.play();
+        updateMusicToggle(true);
       } catch {
         musicToggle.setAttribute('aria-label', 'Musik tidak dapat diputar');
         musicToggle.title = 'Musik tidak dapat diputar';
       }
+    }
+  }
+
+  async function toggleMusic() {
+    if (musicAudio.paused) {
+      await startMusic();
       return;
     }
 
     musicAudio.pause();
-  });
+    updateMusicToggle(false);
+  }
+
+  musicToggle.addEventListener('click', toggleMusic);
+
+  if (openLink) {
+    openLink.addEventListener('click', () => {
+      void startMusic();
+    });
+  }
+
+  document.addEventListener(
+    'pointerdown',
+    () => {
+      if (!musicAudio.paused) return;
+      void startMusic();
+    },
+    { once: true }
+  );
 
   musicAudio.addEventListener('play', () => updateMusicToggle(true));
   musicAudio.addEventListener('pause', () => updateMusicToggle(false));
