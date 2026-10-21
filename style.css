@@ -229,6 +229,14 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
+.cover__session {
+  margin: 0.8rem 0 0;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .cover__to {
   margin: 2.6rem 0 1.2rem;
   color: rgb(255 253 247 / 82%);
