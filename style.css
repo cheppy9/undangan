@@ -1340,13 +1340,13 @@ a:focus-visible {
     .reveal {
       animation: reveal-up linear both;
       animation-timeline: view();
-      animation-range: entry 0% cover 60%;
+      animation-range: entry 0% cover 30%;
     }
 
     .scroll-type {
       animation: type-in linear both;
       animation-timeline: view();
-      animation-range: entry 0% cover 60%;
+      animation-range: entry 0% cover 30%;
     }
   }
 }
